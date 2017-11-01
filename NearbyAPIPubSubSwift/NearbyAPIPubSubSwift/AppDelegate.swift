@@ -23,18 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var publication: GNSPublication?
     var subscription: GNSSubscription?
     var navController: UINavigationController!
-    var viewController: ViewController!
+    var firstViewController: FirstViewController!
+    var nearbyViewController: NearbyViewController!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        viewController = ViewController()
-        navController = UINavigationController(rootViewController: viewController)
+        nearbyViewController = NearbyViewController()
+        firstViewController = FirstViewController()
+        navController = UINavigationController(rootViewController: firstViewController)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
         
         // Set up the message view navigation buttons.
-        nearbyPermission = GNSPermission(changedHandler: {[unowned self] granted in
-            self.viewController.leftBarButton =
+        /*nearbyPermission = GNSPermission(changedHandler: {[unowned self] granted in
+            self.nearbyViewController.leftBarButton =
                 UIBarButtonItem(title: String(format: "%@ Nearby", granted ? "Deny" : "Allow"),
                                 style: .plain, target: self, action: #selector(AppDelegate.toggleNearbyPermission))
         })
@@ -67,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                 print("Nearby works better if Bluetooth is turned on")
                                             }
                                         }
-        })
+        })*/
         
         return true
     }
@@ -75,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// Sets up the right bar button to start or stop sharing, depending on current sharing mode.
     func setupStartStopButton() {
         let isSharing = (publication != nil)
-        viewController.rightBarButton = UIBarButtonItem(title: isSharing ? "Stop" : "Start",
+        nearbyViewController.rightBarButton = UIBarButtonItem(title: isSharing ? "Stop" : "Start",
                                                                style: .plain,
                                                                target: self, action: isSharing ? #selector(AppDelegate.stopSharing) :  #selector(AppDelegate.startSharingWithRandomName))
     }
@@ -90,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func stopSharing() {
         publication = nil
         subscription = nil
-        viewController.title = ""
+        nearbyViewController.title = ""
         setupStartStopButton()
     }
     
@@ -104,20 +106,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func startSharing(withName name: String) {
         if let messageMgr = self.messageMgr {
             // Show the name in the message view title and set up the Stop button.
-            viewController.title = name
+            nearbyViewController.title = name
             
             // Publish the name to nearby devices.
-            let pubMessage: GNSMessage = GNSMessage(content: name.data(using: .utf8,
-                                                                       allowLossyConversion: true))
+            let pubMessage: GNSMessage = GNSMessage(content: name.data(using: .utf8, allowLossyConversion: true))
             publication = messageMgr.publication(with: pubMessage)
             
             // Subscribe to messages from nearby devices and display them in the message view.
             subscription = messageMgr.subscription(messageFoundHandler: {[unowned self] (message: GNSMessage?) -> Void in
                 guard let message = message else { return }
-                self.viewController.addMessage(String(data: message.content, encoding:.utf8))
+                self.nearbyViewController.addMessage(String(data: message.content, encoding:.utf8))
                 }, messageLostHandler: {[unowned self](message: GNSMessage?) -> Void in
                     guard let message = message else { return }
-                    self.viewController.removeMessage(String(data: message.content, encoding: .utf8))
+                    self.nearbyViewController.removeMessage(String(data: message.content, encoding: .utf8))
             })
         }
     }

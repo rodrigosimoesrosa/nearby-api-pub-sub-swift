@@ -2,7 +2,8 @@ import UIKit
 
 let cellIdentifier = "messageCell"
 
-class ViewController: UITableViewController {
+class NearbyViewController: UITableViewController {
+    
     /**
      * @property
      * The left button to use in the nav bar.

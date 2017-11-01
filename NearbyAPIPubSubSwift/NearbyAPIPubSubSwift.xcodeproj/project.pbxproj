@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B009CD61F9E8FF700FE0275 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B009CD51F9E8FF700FE0275 /* User.swift */; };
+		2B009D121F9E984000FE0275 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B009D111F9E984000FE0275 /* FirstViewController.swift */; };
 		2B01870D1F9E33D80043B9F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B01870C1F9E33D80043B9F5 /* AppDelegate.swift */; };
-		2B01870F1F9E33D80043B9F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B01870E1F9E33D80043B9F5 /* ViewController.swift */; };
+		2B01870F1F9E33D80043B9F5 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B01870E1F9E33D80043B9F5 /* NearbyViewController.swift */; };
 		2B0187121F9E33D80043B9F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B0187101F9E33D80043B9F5 /* Main.storyboard */; };
 		2B0187141F9E33D80043B9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0187131F9E33D80043B9F5 /* Assets.xcassets */; };
 		2B0187171F9E33D80043B9F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B0187151F9E33D80043B9F5 /* LaunchScreen.storyboard */; };
@@ -35,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B009CD51F9E8FF700FE0275 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2B009D111F9E984000FE0275 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		2B0187091F9E33D80043B9F5 /* NearbyAPIPubSubSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyAPIPubSubSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B01870C1F9E33D80043B9F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2B01870E1F9E33D80043B9F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2B01870E1F9E33D80043B9F5 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		2B0187111F9E33D80043B9F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B0187131F9E33D80043B9F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B0187161F9E33D80043B9F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,12 +110,14 @@
 			isa = PBXGroup;
 			children = (
 				2B01870C1F9E33D80043B9F5 /* AppDelegate.swift */,
-				2B01870E1F9E33D80043B9F5 /* ViewController.swift */,
+				2B01870E1F9E33D80043B9F5 /* NearbyViewController.swift */,
 				2B0187101F9E33D80043B9F5 /* Main.storyboard */,
 				2B0187131F9E33D80043B9F5 /* Assets.xcassets */,
 				2B0187151F9E33D80043B9F5 /* LaunchScreen.storyboard */,
 				2B0187181F9E33D80043B9F5 /* Info.plist */,
 				2BB9E6321F9E691D0078535D /* NearbyAPIPubSubSwiftBridgingHeader.h */,
+				2B009CD51F9E8FF700FE0275 /* User.swift */,
+				2B009D111F9E984000FE0275 /* FirstViewController.swift */,
 			);
 			path = NearbyAPIPubSubSwift;
 			sourceTree = "<group>";
@@ -222,7 +228,8 @@
 				TargetAttributes = {
 					2B0187081F9E33D80043B9F5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = R5W45TSA3U;
+						ProvisioningStyle = Manual;
 					};
 					2B01871C1F9E33D80043B9F5 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -344,8 +351,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B01870F1F9E33D80043B9F5 /* ViewController.swift in Sources */,
+				2B01870F1F9E33D80043B9F5 /* NearbyViewController.swift in Sources */,
 				2B01870D1F9E33D80043B9F5 /* AppDelegate.swift in Sources */,
+				2B009CD61F9E8FF700FE0275 /* User.swift in Sources */,
+				2B009D121F9E984000FE0275 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,10 +509,13 @@
 			baseConfigurationReference = 4CABDD449838D40742088F23 /* Pods-NearbyAPIPubSubSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R5W45TSA3U;
 				INFOPLIST_FILE = NearbyAPIPubSubSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.mirabilis.NearbyAPIPubSubSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9e075194-b311-478d-8d70-dbe5932a3253";
+				PROVISIONING_PROFILE_SPECIFIER = NearbyAPIPubSubDev;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = NearbyAPIPubSubSwift/NearbyAPIPubSubSwiftBridgingHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -514,10 +526,13 @@
 			baseConfigurationReference = E051B611475AC555330D020A /* Pods-NearbyAPIPubSubSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R5W45TSA3U;
 				INFOPLIST_FILE = NearbyAPIPubSubSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.mirabilis.NearbyAPIPubSubSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9e075194-b311-478d-8d70-dbe5932a3253";
+				PROVISIONING_PROFILE_SPECIFIER = NearbyAPIPubSubDev;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = NearbyAPIPubSubSwift/NearbyAPIPubSubSwiftBridgingHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
